@@ -27,6 +27,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
+from prettytable import PrettyTable
 
 sklearn.__version__, xgb.__version__
 
@@ -411,4 +412,12 @@ importance
 * BMI also has an effect on charges as observed from feature importance.
 * Important thing to note is our model has a very very small bias towards gender and region when compared to smoker.
 """
+
+p = PrettyTable(["Model", "test absolute percentage error"])
+p.add_row(["Linear Regression with L1 and L2 regularization", "0.9429"])
+p.add_row(["kNN Regressor", "0.3386"])
+p.add_row(["SVM Regressor", "0.2112"])
+p.add_row(["Random Forest Regressor", "0.3064"])
+p.add_row(["XGBoost Regressor", "0.2663"])
+print(p)
 
